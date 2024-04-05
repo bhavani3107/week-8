@@ -1,0 +1,39 @@
+<!-- updatemessage.ejs -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Update Message</title>
+  <link rel="stylesheet" href="/css/styles.css" />
+  <!-- Link to external stylesheet -->
+</head>
+<body>
+  <nav class="navbar">
+    <h1>My Messages</h1>
+    <div class="links">
+      <a href="/">Home</a>
+      <a class="new-item-link" href="/addmessage">New Message</a>
+    </div>
+  </nav>
+
+  
+  <div class="content">
+    <div class="update">
+      <h2>Update Message</h2>
+      <form action="/single-message/<%= message._id %>?_method=PUT" method="POST">
+        <label>Sender:</label>
+        <input type="text" value="<%= message.sender %>" id="title" name="sender" required />
+
+        <label>Recipient:</label>
+        <input type="text" value="<%= message.recipient %>" id="title" name="recipient" required />
+
+        <label for="description">Content:</label>
+        <textarea id="description" name="content" rows="4" required><%= message.content %></textarea>
+
+        <button type="submit">Update Message</button>
+      </form>
+    </div>
+  </div>
+</body>
+</html>

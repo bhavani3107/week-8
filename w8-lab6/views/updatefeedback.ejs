@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Update Feedback</title>
+  <link rel="stylesheet" href="/css/styles.css" />
+  <!-- Link to external stylesheet -->
+</head>
+<body>
+  <nav class="navbar">
+    <h1>My Feedbacks</h1>
+    <div class="links">
+      <a href="/">Home</a>
+      <a class="new-item-link" href="/addfeedback">New Feedback</a>
+    </div>
+  </nav>
+
+  <div class="content">
+    <div class="update">
+      <h2>Update Feedback</h2>
+      <form action="/single-feedback/<%= feedback._id %>?_method=PUT" method="POST">
+        <label>Sender:</label>
+        <input type="text" value="<%= feedback.sender %>" id="sender" name="sender" required />
+
+        <label for="message">Message:</label>
+        <textarea id="message" name="message" rows="4" required><%= feedback.message %></textarea>
+
+        <label for="rating">rating:</label>
+        <input type="number" id="rating" name="rating" required value="<%= feedback.rating %>" />
+
+      
+
+
+        <button type="submit">Update Feedback</button>
+      </form>
+    </div>
+  </div>
+</body>
+</html>

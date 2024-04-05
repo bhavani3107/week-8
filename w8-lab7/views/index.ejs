@@ -1,0 +1,42 @@
+<!-- Define a function to render each inventory -->
+<% function renderInventory(inventory) { %>
+  <div class="item-preview">
+    <a href="/single-inventory/<%= inventory._id %>">
+      <h2>Name: <%= inventory.name %></h2>
+      <p>Written by Lakshmi Bhavani</p>
+    </a>
+  </div>
+<% } %>
+
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Inventorys</title>
+    <link rel="stylesheet" href="/css/styles.css" />
+    <!-- Link to external stylesheet -->
+  </head>
+  <body>
+    <nav class="navbar">
+      <h1>My Inventorys</h1>
+      <div class="links">
+        <a href="/">Home</a
+        ><a class="new-item-link" href="/addinventory">New Inventory</a>
+      </div>
+    </nav>
+
+    <div class="content">
+      <div class="home">
+        <div class="item-list">
+          <% if (inventorys.length > 0) { %>
+          <!-- Call the renderInventory function for each inventory -->
+          <% inventorys.forEach(renderInventory); %> <% } else { %>
+          <p>No inventorys found.</p>
+          <% } %>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>

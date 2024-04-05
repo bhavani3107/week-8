@@ -1,0 +1,45 @@
+<!-- updatelocation.ejs -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Update Location</title>
+  <link rel="stylesheet" href="/css/styles.css" />
+  <!-- Link to external stylesheet -->
+</head>
+<body>
+  <nav class="navbar">
+    <h1>My Locations</h1>
+    <div class="links">
+      <a href="/">Home</a>
+      <a class="new-item-link" href="/addlocation">New Location</a>
+    </div>
+  </nav>
+
+  
+  
+  <div class="content">
+    <div class="update">
+      <h2>Update Location</h2>
+      <form action="/single-location/<%= location._id %>?_method=PUT" method="POST">
+        <label>Name:</label>
+        <input type="text" value="<%= location.name %>" id="title" name="name" required />
+
+        <label for="address">Address:</label>
+        <textarea id="description" name="address" rows="4" required><%= location.address %></textarea>
+
+        <label for="latitude">Latitude:</label>
+        <input type="number" id="targetDate" name="latitude" required value="<%= location.latitude %>" />
+
+        <label for="longitude">Longitude:</label>
+        <input type="number" id="targetDate" name="longitude" required value="<%= location.longitude %>" />
+
+        
+
+        <button type="submit">Update Location</button>
+      </form>
+    </div>
+  </div>
+</body>
+</html>

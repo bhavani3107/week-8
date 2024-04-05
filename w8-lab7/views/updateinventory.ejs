@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Update Inventory</title>
+  <link rel="stylesheet" href="/css/styles.css" />
+  <!-- Link to external stylesheet -->
+</head>
+<body>
+  <nav class="navbar">
+    <h1>My Inventorys</h1>
+    <div class="links">
+      <a href="/">Home</a>
+      <a class="new-item-link" href="/addinventory">New Inventory</a>
+    </div>
+  </nav>
+
+  <div class="content">
+    <div class="update">
+      <h2>Update Inventory</h2>
+      <form action="/single-inventory/<%= inventory._id %>?_method=PUT" method="POST">
+        <label>Name:</label>
+        <input type="text" value="<%= inventory.name %>" id="name" name="name" required />
+
+        <label for="description">Description:</label>
+        <textarea id="description" name="description" rows="4" required><%= inventory.description %></textarea>
+
+        <label for="quantity">Quantity:</label>
+        <input type="number" id="quantity" name="quantity" required value="<%= inventory.quantity %>" />
+
+        <label for="price">Price:</label>
+        <input type="number" id="price" name="price" required value="<%= inventory.price %>" />
+
+      
+
+
+        <button type="submit">Update Inventory</button>
+      </form>
+    </div>
+  </div>
+</body>
+</html>

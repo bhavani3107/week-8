@@ -1,0 +1,73 @@
+<!-- Define a function to render the contact -->
+<% function renderContact(contact) { %>
+  <div class="item-details">
+    <article>
+      <h2>FirstName: <%= contact.firstName %></h2>
+      
+      <p>
+        <strong>LastName:</strong> <%= contact.lastName %><br>
+        <strong>Email:</strong> <%= contact.email %><br>
+        <strong>Phone:</strong> <%= contact.phone %><br>
+        <strong>Address:</strong><%= contact.address %>
+      </p>
+      <br>
+      <!-- <div><strong>Address:</strong><%= contact.address %></div> -->
+      <!-- Update button -->
+      <form
+        class="action-form"
+        method="GET"
+        action="/single-contact/update/<%= contact._id %>"
+      >
+        <button type="submit" class="update">Update</button>
+      </form>
+  
+      <!-- Delete button -->
+      <form
+        class="action-form"
+        method="POST"
+        action="/single-contact/<%= contact._id %>?_method=DELETE"
+      >
+        <button type="submit">Delete</button>
+      </form>
+    </article>
+  </div>
+  <% } %>
+  
+  <% 
+  function formatDate(dateString) {
+      const date = new Date(dateString);
+      // Format the date as desired (e.g., YYYY-MM-DD)
+      const formattedDate = date.toLocaleDateString('fi-FI', { year: 'numeric', month: 'long', day: 'numeric' });
+      return formattedDate;
+  } 
+  %>
+  
+  <!DOCTYPE html>
+  <html lang="en">
+    <head>
+      <meta charset="UTF-8" />
+      <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+      <title>Single Contact</title>
+      <link rel="stylesheet" href="/css/styles.css" />
+      <!-- Link to external stylesheet -->
+    </head>
+    <body>
+      <nav class="navbar">
+        <h1>My Contacts</h1>
+        <div class="links">
+          <a href="/">Home</a>
+          <a class="new-item-link" href="/addcontact">New Contact</a>
+        </div>
+      </nav>
+  
+      <div class="content">
+        <div class="home">
+          <div class="item-list">
+            <% if (contact) { %> <%= renderContact(contact) %> <% } else { %>
+            <p>No contact found.</p>
+            <% } %>
+          </div>
+        </div>
+      </div>
+    </body>
+  </html>

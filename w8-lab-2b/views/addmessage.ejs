@@ -1,0 +1,59 @@
+<!-- addmessage.ejs -->
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Add Message</title>
+    <link rel="stylesheet" href="/css/styles.css" />
+    <!-- Link to external stylesheet -->
+  </head>
+  <body>
+    <nav class="navbar">
+      <h1>My Messages</h1>
+      <div class="links">
+        <a href="/">Home</a
+        ><a class="new-item-link" href="/addmessage">New Message</a>
+      </div>
+    </nav>
+
+    
+    <div class="content">
+      <div class="create">
+        <h2>Add a New Message</h2>
+        <form action="/addMessage" method="POST">
+          <label>Sender:</label
+          ><input type="text" value="" id="sender" name="sender" required />
+
+          <label>Recipient:</label
+            ><input type="text" value="" id="recipient" name="recipient" required />
+
+
+          <label for="content">Content:</label>
+          <textarea
+            value=""
+            id="content"
+            name="content"
+            rows="4"
+            required
+          ></textarea
+          ><br />
+
+          <!-- <label for="targetDate">Target Date:</label>
+          <input type="date" id="targetDate" name="targetDate" required /><br />  -->
+
+          <!-- <label>Author:</label>
+          <select>
+            <option value="Satnam">Sami</option>
+            <option value="Maninder">Rami</option></select
+          ><br /> -->
+
+          <!-- <label for="achieved">Achieved:</label>
+          <input type="checkbox" id="achieved" name="achieved" /><br /> -->
+
+          <button type="submit">Add Message</button>
+        </form>
+      </div>
+    </div>
+  </body>
+</html>
